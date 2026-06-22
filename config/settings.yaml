@@ -1,0 +1,22 @@
+# config/settings.yaml — environment configuration only.
+app:
+  name: FinanceOS
+  version: 0.1.0
+
+watchlist:
+  symbols: [AAPL, MSFT, GOOGL, TSLA]
+  default_interval: 1d
+  history_period: 1y
+
+data:
+  provider: yfinance         # yfinance | alpha_vantage
+  cache_dir: ./cache
+  cache_ttl_seconds: 3600
+
+logging:
+  level: INFO
+  dir: ./logs
+
+dashboard:
+  host: 0.0.0.0              # 0.0.0.0 so Windows browser can reach it
+  port: 8501

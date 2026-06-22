@@ -1,0 +1,23 @@
+# --- Market data APIs (fetching only — YOU write the logic) ---
+yfinance>=0.2.40
+alpha-vantage>=3.0.0
+
+# --- HTTP ---
+requests>=2.32
+
+# --- Data structures ---
+pandas>=2.2
+
+# --- Terminal UI ---
+rich>=13.7
+
+# --- Plotting (CLI charts / saving images) ---
+matplotlib>=3.9
+
+# --- Web dashboard ---
+streamlit>=1.36
+flask>=3.0
+
+# --- Config loading ---
+pyyaml>=6.0
+python-dotenv>=1.0
