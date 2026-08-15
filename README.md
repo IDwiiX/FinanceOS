@@ -1,3 +1,8 @@
+[![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey)]()
+[![Finance](https://img.shields.io/badge/Domain-Quantitative%20Finance-purple)]()
+
 # FinanceOS
 
 ### Quantitative Finance Engine & Market Analytics Platform
