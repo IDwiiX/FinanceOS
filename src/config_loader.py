@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -14,13 +15,22 @@ _SETTINGS_PATH = _PROJECT_ROOT / "config" / "settings.yaml"
 _ENV_PATH = _PROJECT_ROOT / "config" / ".env"
 
 
+def project_root() -> Path:
+    """Return the absolute path to the FinanceOS project root."""
+    return _PROJECT_ROOT
+
+
+@lru_cache(maxsize=1)
 def load_config() -> dict[str, Any]:
-    """Read settings.yaml into a dict and load .env into os.environ."""
+    """Read settings.yaml into a dict and load .env into os.environ.
+
+    Cached so repeated calls don't re-read the file.
+    """
     load_dotenv(_ENV_PATH)
     with _SETTINGS_PATH.open("r", encoding="utf-8") as fh:
         return yaml.safe_load(fh)
 
 
 def get_secret(key: str, default: str | None = None) -> str | None:
-    """Fetch a value from environment (populated by .env)."""
+    """Fetch a value from the environment (populated by .env)."""
     return os.getenv(key, default)

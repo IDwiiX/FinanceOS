@@ -1,0 +1,10 @@
+[Unit]
+Description=Run FinanceOS data update daily at 18:00
+
+[Timer]
+OnCalendar=*-*-* 18:00:00
+Persistent=true
+Unit=financeos-update.service
+
+[Install]
+WantedBy=timers.target

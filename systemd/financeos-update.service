@@ -1,0 +1,10 @@
+[Unit]
+Description=FinanceOS daily data update
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/finance-os
+ExecStart=/home/REPLACE_USER/finance-os/.venv/bin/python -m src.data.updater

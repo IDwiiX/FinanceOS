@@ -1,0 +1,16 @@
+[Unit]
+Description=FinanceOS Streamlit Dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/home/REPLACE_USER/finance-os
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/home/REPLACE_USER/finance-os/.venv/bin/python -m streamlit run src/ui/dashboard.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

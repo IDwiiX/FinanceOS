@@ -1,22 +1,43 @@
-# config/settings.yaml — environment configuration only.
+# config/settings.yaml — FinanceOS configuration
 app:
   name: FinanceOS
-  version: 0.1.0
+  version: 1.0.0
 
 watchlist:
-  symbols: [AAPL, MSFT, GOOGL, TSLA]
+  symbols:
+    - AAPL
+    - MSFT
+    - GOOGL
+    - TSLA
+    - NVDA
   default_interval: 1d
-  history_period: 1y
+  history_period: 2y          # passed straight to the fetcher
 
 data:
-  provider: yfinance         # yfinance | alpha_vantage
+  provider: yfinance
   cache_dir: ./cache
-  cache_ttl_seconds: 3600
+  cache_ttl_seconds: 3600     # 1 hour
+  request_timeout: 10         # seconds, per yfinance attempt
+  request_retries: 3          # retry attempts on failure
+  retry_backoff: 1.5          # multiplier between retries
+
+risk:
+  var_confidence: 0.95        # 95% VaR
+  es_confidence: 0.95         # 95% Expected Shortfall
+  risk_free_rate: 0.04        # 4% annual risk-free rate
+  periods:
+    short: 21                 # ~1 trading month
+    medium: 63                # ~1 quarter
+    long: 252                 # ~1 trading year
+
+signal:
+  short_window: 50            # 50-day SMA
+  long_window: 200            # 200-day SMA
+
+dashboard:
+  host: 0.0.0.0
+  port: 8501
 
 logging:
   level: INFO
   dir: ./logs
-
-dashboard:
-  host: 0.0.0.0              # 0.0.0.0 so Windows browser can reach it
-  port: 8501
