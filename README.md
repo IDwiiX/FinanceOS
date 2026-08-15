@@ -86,6 +86,14 @@ All models are validated in `tests/test_mathematical_suite.py` against known ana
 
 ---
 
+## Command-Line Interface
+
+<p align="center">
+  <img src="assets/cli.png" alt="FinanceOS CLI" width="850">
+</p>
+
+---
+
 ## Market Data
 
 Provider: `yfinance`. Default watchlist: AAPL, MSFT, GOOGL, TSLA, NVDA (2y daily history, OHLCV). Local caching (1hr TTL by default) avoids redundant requests; cache is git-ignored.
