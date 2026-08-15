@@ -1,0 +1,67 @@
+================================================================
+                 FINANCEOS
+            MATHEMATICAL TEST SUITE
+================================================================
+
+[1/8] BLACK-SCHOLES
+  Call:              10.450584
+  Expected:          10.450584
+  Put:               5.573526
+  Expected:          5.573526
+  ✓ PASS
+
+[2/8] PUT-CALL PARITY
+  C - P:             4.8770575499
+  S - K·exp(-rT):    4.8770575499
+  ✓ PASS
+
+[3/8] IMPLIED VOLATILITY
+  Original sigma:    0.20000000
+  Recovered IV:      0.20000000
+  ✓ PASS
+
+[4/8] VALUE AT RISK
+  Historical VaR95: 0.04500000
+  Parametric VaR95: 0.05455362
+  ✓ PASS
+
+[5/8] EXPECTED SHORTFALL
+  Historical ES95:  0.05000000
+  Parametric ES95:  0.06841244
+  ✓ PASS
+
+[6/8] SHARPE RATIO
+  Annualized Sharpe: 85.56812936
+  ✓ PASS
+
+[7/8] MAXIMUM DRAWDOWN
+  Maximum drawdown:  0.33333333
+  Expected:          0.33333333
+  Peak date:         2026-01-02 00:00:00
+  Trough date:       2026-01-05 00:00:00
+  ✓ PASS
+
+[8/8] SMA SIGNAL
+  Uptrend signal:    BUY
+  Short SMA:         145.0803
+  Long SMA:          130.0201
+  Downtrend signal:  SELL
+  Short SMA:         104.9197
+  Long SMA:          119.9799
+  ✓ PASS
+
+================================================================
+                  ALL TESTS PASSED
+================================================================
+
+  ✓ Black-Scholes
+  ✓ Put-Call Parity
+  ✓ Implied Volatility
+  ✓ Value at Risk (VaR)
+  ✓ Expected Shortfall (ES)
+  ✓ Sharpe Ratio
+  ✓ Maximum Drawdown
+  ✓ SMA Trading Signal
+
+FinanceOS mathematical validation: SUCCESS
+================================================================
