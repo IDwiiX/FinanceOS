@@ -33,20 +33,6 @@ A modular quantitative research platform: market data, option pricing, risk anal
                      Configuration (YAML + env)
 ```
 
-```text
-FinanceOS/
-├── config/            settings.yaml, .env.example
-├── src/
-│   ├── config_loader.py
-│   ├── data/           fetcher.py, updater.py
-│   ├── models/         pricing.py
-│   └── ui/              cli.py, dashboard.py
-├── systemd/            dashboard/update services + timer
-├── tests/               test_mathematical_suite.py
-├── main.py
-├── deploy.sh
-└── requirements.txt
-```
 
 ---
 
@@ -122,30 +108,3 @@ chmod +x deploy.sh && ./deploy.sh
 
 Configuration is centralized in `config/settings.yaml` (watchlist, cache, risk confidence levels, SMA windows, dashboard host/port) — no hard-coded constants scattered through the codebase.
 
----
-
-## Design Notes
-
-- **Modular engine** — all quant math lives in `src/models/pricing.py`, decoupled from CLI/dashboard presentation.
-- **Clean pipeline** — data acquisition → processing → quant models → UI → deployment, so layers evolve independently.
-- **Validated, not just tested** — the suite checks against known closed-form values (Black-Scholes, put-call parity, IV round-trips, controlled VaR/ES datasets), not just that functions run.
-
----
-
-## Limitations
-
-Educational/research platform — not a brokerage, execution engine, or source of financial advice. Black-Scholes and parametric risk measures rely on assumptions (e.g. normality, constant volatility) that don't always hold in real markets. The SMA strategy is intentionally simple, meant to demonstrate systematic signal generation rather than serve as a production strategy.
-
----
-
-## Roadmap
-
-Monte Carlo simulation · Greeks · binomial pricing · GARCH volatility · portfolio optimization & efficient frontier · factor models · backtesting engine · REST API · Docker · CI/CD.
-
----
-
-## Author
-
-**Mohamed Ali** — CS student focused on quantitative finance, financial mathematics, and machine learning. FinanceOS was built as a practical intersection of financial mathematics, numerical methods, and software engineering.
-
-MIT License.
